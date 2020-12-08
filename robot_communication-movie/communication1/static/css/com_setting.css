@@ -1,0 +1,137 @@
+.main_style_2 {
+	margin: 50px auto;
+	width: 325px;
+	height: 400px;
+	background-color: #303361;
+	position: relative;
+	overflow: hidden;
+	border-radius: 15px;
+	opacity: 0.8;
+}
+
+.border-round {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	border-radius: 50%;
+	border: 1px solid #575a9f;
+	margin: 0 auto;
+	left: 4%;
+	top: 4%;
+	transition: ease-in all 0.8s;
+}
+
+.main_style_2:hover .border-round {
+	transform: scale(1.1, 1.1);
+	transition: ease-out all 0.8s;
+}
+
+.outer-round {
+	width: 165px;
+	height: 165px;
+	position: absolute;
+	border-radius: 50%;
+	border: 1px solid #393d6b;
+	margin: 0 auto;
+	left: 24%;
+	top: 10%;
+}
+
+.round2 {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	background-color: #6495ED;
+	position: absolute;
+	background-image: url('../src/icon01.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0px 0px;
+	margin: 0 auto;
+	left: 7%;
+	top: 7%;
+	transition: ease-in all 0.8s;
+}
+
+.white {
+	background-color: #fefefe;
+	position: absolute;
+	bottom: 0;
+	width: 325px;
+	height: 110px;
+}
+
+.cir {
+	width: 50px;
+	height: 50px;
+	background-color: #4bcdff;
+	border: 1px solid #4bcdff;
+	position: absolute;
+	bottom: 21%;
+	right: 10%;
+	z-index: 100;
+	border-radius: 50%;
+}
+
+.bell {
+	color: #9195d5;
+	padding-left: 25px;
+	padding-top: 30px !important;
+	transition: ease-in all 0.8s;
+	transform: scale(1, 1);
+}
+
+.bell:hover {
+	transform: scale(1.1, 1.1);
+	transition: ease-out all 0.8s;
+	color: #fff;
+}
+
+.msg {
+	color: #9195d5;
+	padding-right: 25px;
+	padding-top: 30px !important;
+	float: right;
+	transform: scale(1, 1);
+	transition: ease-in all 0.8s;
+}
+
+.msg:hover {
+	transform: scale(1.1, 1.1);
+	transition: ease-out all 0.8s;
+	color: #fff;
+}
+
+.head2 {
+	top: 56%;
+	left: 32%;
+	position: absolute;
+	font-size: 18px;
+	letter-spacing: 1px;
+	color: #FFFFFF;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.p3 {
+	color: #bfd2d0;
+	top: 62%;
+	left: 38%;
+	position: absolute;
+	font-size: 14px;
+}
+
+.hd1 {
+	font-size: 22px;
+	color: #000000;
+	padding-top: 32px;
+}
+
+.p4 {
+	font-size: 15px;
+}
+
+.edit {
+	color: #FFFFFF;
+	padding-top: 6px;
+	padding-left: 6px;
+}

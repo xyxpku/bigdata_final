@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AJAX局部刷新实例</title>
+</head>
+<body>
+
+<input type="text" id="i1">+
+<input type="text" id="i2">=
+<input type="text" id="i3">
+<input type="button" value="AJAX提交" id="b1">
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+  $("#b1").on("click", function () {
+    $.ajax({
+      url:"/ajax_add/",
+      type:"GET",
+      data:{"i1":$("#i1").val(),"i2":$("#i2").val()},
+      success:function (data) {
+        $("#i3").val(data);
+      }
+    })
+  })
+</script>
+</body>
+</html>

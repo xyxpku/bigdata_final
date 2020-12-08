@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>你好！欢迎注册</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="text-align: center;background-image: url('../static/src/registbkg.jpg');background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-attachment: fixed;">
+{% if logininfo == "same_error" %}
+    <script type="text/javascript">
+        alert("该账号已存在")
+    </script>
+{% endif %}
+{% if logininfo == "repeate" %}
+    <script type="text/javascript">
+        alert("该邮箱已被注册")
+    </script>
+{% endif %}
+{% if logininfo == "wrong" %}
+    <script type="text/javascript">
+        alert("邮箱格式错误")
+    </script>
+{% endif %}
+
+<div style="margin-top: 20%;"></div>
+<div style=" opacity:0.8; background-color:#87CEFA;min-width: 230px;width: 33%;height:300px;border:10px;border-radius:10px;margin-left: auto;margin-right: auto;">
+{#border-color: #A020F0;border-style:solid">#}
+    <span><font size="5">欢迎注册！</font></span>
+    <br>
+    <br>
+<form name="Registform" method="post" action="/regist/" onsubmit="return validForm()" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div style="position: relative;">
+    <div style="">
+        <div style="position:relative">
+            <font size="4" color="#000000">账号</font>&nbsp;
+            <input id="num_id" type="text" name="username" width="25%" maxlength="26" autocomplete="off"/>
+{#                   value="{{ logininfo }}"/>#}
+            <br>
+            <br>
+            <font size="4" color="#000000">密码</font>&nbsp;
+            <input id="pwd_id" type="password" name="pwd" width="25%" maxlength="16"/>
+            <br>
+            <br>
+            <font size="4" color="#000000">邮箱</font>&nbsp;
+            <input type="text" name="email" size="20" id="email_id"/>
+            <br>
+            <br>
+            <font size="4" color="#000000">昵称</font>
+            <input type="text" name="nicheng" id="nicheng_id"/>
+        </div>
+        <br>
+    <div style="margin-bottom:10px;left:15% ;position: absolute">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" value="提交" name="regist">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" value="重置" name="text7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" value="返回" name="back_home" onclick="window.location.href='/index/'">
+    </div>
+    </div>
+    </div>
+</form>
+</div>
+<script>
+    $(document).ready(function () {
+        $("input[type='submit']").click(function validForm() {
+            if ($("input[id='num_id']").val() == "") {
+                alert("请输入注册账号");
+                return false;
+            } else if ($("input[id='pwd_id']").val() == "") {
+                alert("请输入密码");
+                return false;
+            } else if ($("input[id='nicheng_id']").val() == "") {
+                alert("请输入昵称");
+                return false;
+            } else if ($("input[id='email_id']").val() == "") {
+                alert("请输入邮箱");
+                return false;
+            } else {
+                return true;
+            }
+        });
+    });
+</script>
+</div>
+</body>
+</html>

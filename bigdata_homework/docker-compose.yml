@@ -1,0 +1,47 @@
+version: "2"
+
+services:
+  master:
+    image: spark-homework-xyx
+    command: start-spark master
+    hostname: master
+    ports:
+      - "4040:4040"
+      - "6066:6066"
+      - "7070:7070"
+      - "7077:7077"
+      - "18084:8080"
+      - "50071:50070"
+      - "8185:8182"
+      - "18089:8088"
+    networks:
+      extnetwork:
+        ipv4_address: 192.168.80.102
+  worker:
+    image: spark-homework-xyx
+    command: start-spark worker master
+    environment:
+      SPARK_WORKER_CORES: 1
+      SPARK_WORKER_MEMORY: 2g
+    networks:
+      extnetwork:      
+        ipv4_address: 192.168.80.103
+    links:
+      - master
+  worker2:
+    image: spark-homework-xyx
+    command: start-spark worker master
+    environment:
+      SPARK_WORKER_CORES: 1
+      SPARK_WORKER_MEMORY: 2g
+    networks:
+      extnetwork:      
+        ipv4_address: 192.168.80.104
+    links:
+      - master       
+networks:
+  extnetwork:
+    ipam:
+      config:
+      - subnet: 192.168.80.0/24
+        gateway: 192.168.80.1
